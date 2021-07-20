@@ -2,11 +2,15 @@ package com.ApiCidades.models;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jdk.jfr.Name;
 
@@ -21,7 +25,10 @@ public class Estado {
 	private int codigoUf;
 	
 	private String nome, uf;
-	@OneToOne()
+	
+	
+	@OneToOne(mappedBy = "estado")
+	@JsonIgnore
 	private Municipio municipio;
 	
 	public Estado() {

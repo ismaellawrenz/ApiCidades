@@ -2,10 +2,12 @@ package com.ApiCidades.models;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,7 +18,7 @@ public class Municipio {
 	private Long id;
 	
 	private int codigo;
-	private String nome, uf;
+	private String nome;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "pais_id")
@@ -53,13 +55,7 @@ public class Municipio {
 		this.nome = nome;
 	}
 
-	public String getUf() {
-		return uf;
-	}
-
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
+	
 
 	public Pais getPais() {
 		return pais;

@@ -2,6 +2,7 @@ package com.ApiCidades.models;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,8 @@ public class Pais {
 	private String nome, sigla;
 	
 	private int bacen;
-	@OneToOne()
+	
+	@OneToOne(mappedBy = "pais")
 	private Municipio municipio;
 	
 	public Pais() {
